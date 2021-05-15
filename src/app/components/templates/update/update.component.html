@@ -1,0 +1,55 @@
+<ul class="n nav">
+  <h1 class="h1">Update Fusca Azul</h1>
+  <li class="nav-item">
+    <a class=" a1 nav-link active" aria-current="page" routerLink=''>Estoque</a>
+</ul>
+
+<div class="card">
+  <div class="card-header">
+    <div class="float-left">
+      <h4>Update</h4>
+    </div>
+    <div class="float-right">
+    </div>
+  </div>
+  <br>
+
+  <div class="card-body">
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th *ngFor="let produto of produtos; let i = index">
+            Código:
+            ({{produto.cod}})
+          </th>
+          <th *ngFor="let produto of produtos; let i = index">
+            Descrição:
+            {{produto.desc}}
+          </th>
+          <th *ngFor="let produto of produtos; let i = index">
+            Quantidade / Qtde Maxima:
+            {{produto.qtddisponivel}}
+            {{produto.max}}
+          </th>
+          <th *ngFor="let produto of produtos; let i = index">
+            Quantidade Mínima:
+            {{produto.min}}
+          </th>
+        </tr>
+      </thead>
+      
+
+        <div class="form-group">
+          <label>Insira a quantidade para alterar no estoque</label>
+          <input type="number" class="form-contro col-md-8" name="qtde" id="qtde" value="" [(ngModel)]="quantidade"
+            required>
+        </div>
+        <div class="form-group">
+          <button class="btn btn-success" (click)="adicionar()">(+) Adicionar</button>
+          {{ ' ' }}
+          <button class="btn btn-warning" (click)="remover()">(-) Remover</button>
+        </div>
+        <form #f="ngForm" (ngSubmit)="onSubmit" class="text-center">
+      </form>
+    </table>
+  </div>
